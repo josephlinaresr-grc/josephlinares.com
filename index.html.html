@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joseph Linares</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1A1A1A;
+    --red: #C0392B;
+    --gold: #B8975A;
+    --muted: #6B6560;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 15% 20%, rgba(192,57,43,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 85% 80%, rgba(184,151,90,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Venezuelan flag stripe — top */
+  .flag-stripe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #CF142B 33.3%, #003893 33.3% 66.6%, #CF9A00 66.6%);
+    z-index: 100;
+  }
+
+  .container {
+    max-width: 480px;
+    width: 100%;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(26,26,26,0.12);
+    position: relative;
+  }
+
+  .flag-badge {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .bio {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .bio em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--dark);
+  }
+
+  /* Quote */
+  .quote-block {
+    margin: 0 auto 2.5rem;
+    padding: 1.25rem 1.5rem;
+    border-left: 2px solid var(--red);
+    background: rgba(192,57,43,0.04);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--dark);
+  }
+
+  /* Links */
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border: 1px solid rgba(26,26,26,0.08);
+    text-decoration: none;
+    color: var(--dark);
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .link-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+  }
+
+  .link-item:hover {
+    border-color: rgba(26,26,26,0.2);
+    transform: translateX(4px);
+    box-shadow: -4px 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .link-item:hover::before {
+    transform: scaleY(1);
+  }
+
+  .link-icon {
+    font-size: 1.1rem;
+    width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .link-content {
+    flex: 1;
+  }
+
+  .link-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .link-title {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .link-arrow {
+    color: var(--muted);
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+  }
+
+  .link-item:hover .link-arrow {
+    transform: translateX(3px);
+    color: var(--gold);
+  }
+
+  /* Featured link — Who I am */
+  .link-item.featured {
+    background: var(--dark);
+    border-color: var(--dark);
+  }
+
+  .link-item.featured .link-label,
+  .link-item.featured .link-title,
+  .link-item.featured .link-arrow {
+    color: var(--cream);
+  }
+
+  .link-item.featured .link-label {
+    color: var(--gold);
+  }
+
+  .link-item.featured::before {
+    background: var(--red);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(26,26,26,0.08);
+  }
+
+  .footer-text {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-text strong {
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  /* Divider label */
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .section-label:first-of-type {
+    margin-top: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="flag-stripe"></div>
+
+<div class="container">
+
+  <div class="header">
+    <span class="flag-badge">🇻🇪</span>
+    <h1 class="name">Joseph Linares</h1>
+    <p class="tagline">Expreso Político · Analista · Madrid</p>
+    <p class="bio">
+      Sobreviviente del Helicoide. Desde Europa, trabajo por la transición democrática en Venezuela y por demostrar que la política puede ejercerse desde la <em>integridad.</em>
+    </p>
+  </div>
+
+  <div class="quote-block">
+    <p class="quote-text">"No elegimos el país en el que nacimos, pero elegimos los ideales por los que luchar."</p>
+  </div>
+
+  <div class="section-label">Conóceme</div>
+
+  <div class="links">
+
+    <a href="#" class="link-item featured">
+      <span class="link-icon">◆</span>
+      <div class="link-content">
+        <span class="link-label">Mi historia</span>
+        <span class="link-title">¿Quién es Joseph Linares?</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <div class="section-label">Sígueme</div>
+
+    <a href="https://instagram.com/josephlinaresr" class="link-item" target="_blank">
+      <span class="link-icon">📷</span>
+      <div class="link-content">
+        <span class="link-label">Instagram</span>
+        <span class="link-title">@josephlinaresr</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="https://x.com/josephlinaresr" class="link-item" target="_blank">
+      <span class="link-icon">𝕏</span>
+      <div class="link-content">
+        <span class="link-label">X / Twitter</span>
+        <span class="link-title">@josephlinaresr</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <a href="#" class="link-item" target="_blank">
+      <span class="link-icon">✍️</span>
+      <div class="link-content">
+        <span class="link-label">Substack</span>
+        <span class="link-title">Análisis & Reflexiones</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+    <div class="section-label">Próximamente</div>
+
+    <a href="#" class="link-item" target="_blank">
+      <span class="link-icon">📄</span>
+      <div class="link-content">
+        <span class="link-label">Informe</span>
+        <span class="link-title">Represión Digital en Venezuela</span>
+      </div>
+      <span class="link-arrow">→</span>
+    </a>
+
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">Madrid, España &nbsp;·&nbsp; <strong>Desde el exilio, nunca me he ido.</strong></p>
+  </div>
+
+</div>
+
+</body>
+</html>
