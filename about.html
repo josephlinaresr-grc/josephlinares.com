@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Quién es Joseph Linares?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1A1A1A;
+    --red: #C0392B;
+    --gold: #B8975A;
+    --muted: #6B6560;
+  }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 4rem 1.5rem 3rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(192,57,43,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 85% 80%, rgba(184,151,90,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .flag-stripe {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #CF142B 33.3%, #003893 33.3% 66.6%, #CF9A00 66.6%);
+    z-index: 100;
+  }
+
+  .container {
+    max-width: 660px;
+    margin: 0 auto;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  /* Back link */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 3rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover { color: var(--dark); }
+
+  /* Header */
+  .header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(26,26,26,0.12);
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--muted);
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  /* Body text */
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .content p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--dark);
+    font-weight: 300;
+  }
+
+  /* Highlighted paragraph — the declaration */
+  .content p.declaration {
+    padding: 1.5rem 1.75rem;
+    border-left: 3px solid var(--red);
+    background: rgba(192,57,43,0.04);
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--dark);
+  }
+
+  /* Closing line */
+  .closing {
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(26,26,26,0.10);
+  }
+
+  .closing p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--dark);
+    font-weight: 400;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 3.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(26,26,26,0.08);
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-text strong {
+    font-weight: 500;
+    color: var(--dark);
+  }
+</style>
+</head>
+<body>
+
+<div class="flag-stripe"></div>
+
+<div class="container">
+
+  <a href="index.html" class="back-link">← Volver</a>
+
+  <div class="header">
+    <span class="eyebrow">🇻🇪 Mi historia</span>
+    <h1 class="title">¿Quién es<br>Joseph Linares?</h1>
+    <p class="subtitle">Expreso político venezolano. Analista de ciberseguridad y derechos humanos. Residente en Madrid.</p>
+  </div>
+
+  <div class="content">
+
+    <p>Estuve preso en El Helicoide. Fui torturado. El régimen de Maduro me presentó en cadena nacional como "enemigo del Estado". Tenía prohibición de salida del país. Me fui igual.</p>
+
+    <p>Soy alguien que vio a su país secuestrado por una narcodictadura y decidió que no podía quedarse de brazos cruzados. Participé activamente en la resistencia durante los años más duros de la represión. Asumí las consecuencias — la pérdida de la libertad, el tiempo entre esos muros — porque era el precio de actuar con conciencia.</p>
+
+    <p>Después vino el exilio: Colombia, Miami, Alemania, España. Me planté solo frente al Parlamento Europeo con un cartel pidiendo ayuda para Venezuela. Alemania me negó el asilo porque, según sus autoridades, yo podía estar "seguro" en Bogotá: la misma ciudad donde han asesinado candidatos presidenciales y han entregado disidentes venezolanos a la dictadura.</p>
+
+    <p class="declaration">Cuando una narcodictadura que masacra a su propio pueblo, tortura y encarcela a quien reclama sus derechos y dice la verdad, me acusó a mí — lo asumí como una distinción, no como una acusación. Hice todo lo que estaba en mis manos por la libertad de Venezuela. Asumí las consecuencias y pagué con mi cuerpo y mi libertad.</p>
+
+    <p>Lo que nadie podrá decir jamás es que me vendí o que abandoné a mi gente por conveniencia. Esa es mi hoja de vida. Yo no solo defiendo los derechos humanos: los reclamo.</p>
+
+    <p>Hoy vivo en Madrid. Trabajo en ciberseguridad como un compromiso: entender y documentar cómo los regímenes autoritarios usan la tecnología para vigilar, reprimir y eliminar la disidencia. A través de talleres y divulgación, ayudo a la comunidad venezolana en Europa a protegerse digitalmente y a comprender cómo opera el poder. Porque entenderlo es el primer paso para limitarlo.</p>
+
+  </div>
+
+  <div class="closing">
+    <p>Desde el exilio, nunca me he ido.</p>
+  </div>
+
+  <div class="footer">
+    <p class="footer-text">Madrid, España &nbsp;·&nbsp; <strong>josephlinares.com</strong></p>
+  </div>
+
+</div>
+
+</body>
+</html>
